@@ -1,0 +1,66 @@
+package {package};
+
+import android.content.ContentValues;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.util.Log;
+
+import org.json.JSONObject;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+public final class {classname} implements Parcelable {
+	public static final String NAME = {classname}.class.getSimpleName();
+
+{static_constants}
+
+{instance_variables}
+
+	public {classname}({constructor_signature}) {
+
+{constructor_fields}
+	}
+
+	public {classname}(Parcel parcel) {
+		String[] data = new String[{properties_size}];
+
+		parcel.readStringArray(data);
+
+{parcel_fields}
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeStringArray(new String[]{
+{write_to_parcel_fields}
+		});
+	}
+
+	public static final Creator<{classname}> CREATOR = new Creator<{classname}>() {
+		@Override
+		public {classname} createFromParcel(Parcel parcel) {
+			return new {classname}(parcel);
+		}
+
+		@Override
+		public {classname}[] newArray(int size) {
+			return new {classname}[size];
+		}
+	};
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+{getters}
+	public ContentValues toContentValues() {
+		ContentValues values = new ContentValues();
+
+{content_values}
+
+		return values;
+	}
+
+}

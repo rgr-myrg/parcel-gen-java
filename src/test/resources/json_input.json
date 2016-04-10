@@ -1,0 +1,13 @@
+{
+	'package': 'net.usrlib.test',
+	'classname': 'MyExample',
+	'properties': [
+			{'name': 'id', type: 'int'},
+			{'name': 'age', type: 'short'},
+			{'name': 'average', type: 'double'},
+			{'name': 'total', type: 'long'},
+			{'name': 'distance', type: 'float'},
+			{'name': 'active', type: 'boolean'},
+			{'name': 'title', type: 'String'},
+	]
+}
