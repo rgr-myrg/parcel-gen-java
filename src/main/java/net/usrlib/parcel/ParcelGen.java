@@ -35,9 +35,37 @@ public ParcelGen() {
 		return mJsonObject;
 	}
 
-	public static void main (String[] args) {
-		for (String s: args) {
-			System.out.println(s);
+	public static void main (String[] args) throws InvalidInputException {
+		String command = "";
+
+		// Ex: {-i}{input}{-o}{output}
+		for (int i = 0; i < args.length; i++) {
+			command += "{" + args[i] + "}";
 		}
+
+		if (!command.contains("-i")) {
+			throw new InvalidInputException("Please specify -i option for input file.");
+		} else if (!command.contains("-o")) {
+			throw new InvalidInputException("Please specify -o option for output file.");
+		}
+
+		System.out.println(StringUtil.getOptionValue(command, "-o"));
+
+		//		// Extracts {word}
+//		// ([^\{][a-zA-Z_.\-\/]+[^\}])
+//		
+//		final String key = "-i";
+//		Pattern pattern = Pattern.compile("(\\{-o\\}\\{)([\\w+\\/\\-.]+)[^\\}]");
+//		pattern = Pattern.compile("(?<=\\{-o\\}\\{)([\\w+\\/\\-.]+)(?=\\})");
+//
+//		final Matcher matcher = pattern.matcher(command);
+//
+//		if (matcher.find()) {
+//			System.out.println(matcher.group(0));
+//			//.replaceAll("\\{-i\\}", "")
+////			for (int i = 0; i < matcher.groupCount(); i++) {
+////				System.out.println(i + "--->" + matcher.group(i));
+////			}
+//		}
 	}
 }
