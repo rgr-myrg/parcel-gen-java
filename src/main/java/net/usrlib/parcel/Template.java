@@ -105,12 +105,8 @@ public class Template {
 		return mNewFileContents;
 	}
 
-	public void saveTemplateToPath(final String path) {
-		try {
-			FileUtil.writeToFile(mNewFileContents, path + "/" + mClassname + KeyName.FILE_TYPE);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public void saveTemplateToPath(final String path) throws IOException {
+		FileUtil.writeToFile(mNewFileContents, path + "/" + mClassname + KeyName.FILE_TYPE);
 	}
 
 	private void buildClassProperties() {

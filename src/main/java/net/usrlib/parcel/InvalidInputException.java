@@ -7,6 +7,10 @@ public class InvalidInputException extends Exception {
 		super(message);
 	}
 
+	public static final InvalidInputException errorMissingOptionValue(String propertyName) {
+		return new InvalidInputException("Error: missing value for '" + propertyName + "' option");
+	}
+
 	public static final InvalidInputException errorMissingProperty(String propertyName) {
 		return new InvalidInputException("Error: JSON input missing '" + propertyName + "' keyname");
 	}
