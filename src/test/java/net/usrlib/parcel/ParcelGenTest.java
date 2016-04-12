@@ -6,6 +6,7 @@ import junit.framework.TestCase;
 
 public class ParcelGenTest extends TestCase {
 	//private String mTestResourceFilename = "src/test/resources/json_input.json";
+	//Ex: java -jar target/parcel-gen-0.1.jar -i  src/test/resources/json_input.json -o ~/Downloads
 
 	@Test
 	public void testInputFilenameMissing() {
