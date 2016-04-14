@@ -28,16 +28,22 @@ public class CommandLineOptions {
 		mOptionsList = options;
 	}
 
-	public final void setArguments(String[] cmdLineArgs) {
+	public final void setArguments(String[] cmdLineArgs) throws InvalidInputException {
 		for (int argsIndex = 0; argsIndex < cmdLineArgs.length; argsIndex++) {
 			final String argument = cmdLineArgs[argsIndex];
 
 			for (int optionsIndex = 0; optionsIndex < mOptionsList.length; optionsIndex++) {
 				if (argument.contains(mOptionsList[optionsIndex])) {
-					int nextArgsItem = argsIndex + 1;
+					int nextArgsItemIndex = argsIndex + 1;
 
-					if (nextArgsItem < cmdLineArgs.length) {
-						mOptionsMap.put(argument, cmdLineArgs[nextArgsItem]);
+					if (nextArgsItemIndex < cmdLineArgs.length) {
+						String nextArgsItemValue = cmdLineArgs[nextArgsItemIndex];
+
+						if (nextArgsItemValue.startsWith("-")) {
+							throw InvalidInputException.errorInvalidFilename(argument);
+						}
+
+						mOptionsMap.put(argument, nextArgsItemValue);
 					}
 				}
 			}

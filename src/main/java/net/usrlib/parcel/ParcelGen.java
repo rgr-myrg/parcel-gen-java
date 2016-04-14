@@ -34,8 +34,12 @@ public class ParcelGen {
 		String inputFilename = options.getValueForOption(CMD_INPUT_FILE);
 		String outputFilename = options.getValueForOption(CMD_OUTPUT_FILE);
 
-		if (inputFilename == null || outputFilename == null) {
+		if (inputFilename == null ) {
 			throw InvalidInputException.errorMissingOptionValue(CMD_INPUT_FILE);
+		}
+
+		if (outputFilename == null) {
+			throw InvalidInputException.errorMissingOptionValue(CMD_OUTPUT_FILE);
 		}
 
 		String fileContents = null;

@@ -31,4 +31,8 @@ public class InvalidInputException extends Exception {
 	public static final InvalidInputException errorMissingProperty(String propertyName) {
 		return new InvalidInputException("Error: JSON missing '" + propertyName + "' keyname");
 	}
+
+	public static final InvalidInputException errorInvalidFilename(String propertyName) {
+		return new InvalidInputException("Error: Please provide a valid filename for option " + propertyName);
+	}
 }
